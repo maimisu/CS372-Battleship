@@ -9,6 +9,7 @@ private:
     std::string _playerName;
 public:
     Player(std::string);
+    void addScore(unsigned int);
     std::string getName(std::string);
     unsigned int getScore();
 };

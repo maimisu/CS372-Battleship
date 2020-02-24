@@ -5,15 +5,15 @@
 #include <vector>
 #include <time.h>
 #include <SFML/Graphics.hpp>
-//int board[10][10];
 
-int size = 50;
+
+int size = 51;
 sf::Sprite sp[2]; //figures
 
 int board[10][10] =
 {
+    -6, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, -6, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -31,13 +31,13 @@ std::string toBoard(sf::Vector2f p){
     return s;
 }
 
-sf::Vector2f coord(char a, char b){
+/*sf::Vector2f coord(char a, char b){
     int x = int(a) - 97;
     int y = 7-int(b)+ 49;
     return sf::Vector2f(x*size,y*size);
-}
+}*/
 
-void letMove(std::string str){
+/*void letMove(std::string str){
     sf::Vector2f oldPos = coord(str[0],str[1]);
     sf::Vector2f newPos = coord(str[2],str[3]);
     for(int i = 0;i<2;i++){
@@ -51,12 +51,12 @@ void letMove(std::string str){
         }
     }
 
-}
+}*/
 
 void loadPosition(){
 int k=0;
-for(int i=0; i < 10; i++){
-    for(int j=0;j<10;j++){
+for(int i=0; i<10; i++){
+    for(int j=0; j<10; j++){
         int n = board[i][j];
         if (!n){
             continue;
@@ -79,14 +79,14 @@ for(int i=0; i < 10; i++){
 	}
 }*/
 int main(){
-	sf::RenderWindow window(sf::VideoMode(649,650), "BattleShip");
+	sf::RenderWindow window(sf::VideoMode(650,650), "BattleShip");
 	sf::Texture t1,t2;
 	t1.loadFromFile("images/Singularboat.png");
 	t2.loadFromFile("images/battleshipBoard2.jpg");
 	sf::Sprite s(t1);
 	sf::Sprite sBoard(t2);
 
-	for(int i = 0; i <2;i++){
+	for(int i = 0; i <2; i++){
         sp[i].setTexture(t1);
 	}
 
@@ -114,14 +114,15 @@ int main(){
                         dy = pos.y - sp[i].getPosition().y;
                         oldPos = sp[i].getPosition();
                         }
+
             if(e.type == sf::Event::MouseButtonReleased)
                 if(e.key.code == sf::Mouse::Left){
                     isMove = false;
                     sf::Vector2f p = sp[n].getPosition() + sf::Vector2f(size/2,size/2);
                     newPos = sf::Vector2f(size*int(p.x/size),size*int(p.y/size));
-                    str = toBoard(oldPos)+ toBoard(newPos);
-                    letMove(str);
-                    std::cout<<str<<std::endl;
+                    //str = toBoard(oldPos)+ toBoard(newPos);
+                    //letMove(str);
+                    std::cout<<size*int(p.x/size)<< " and " << size*int(p.y/size) << std::endl;
                     sp[n].setPosition(newPos);
                 }
             }

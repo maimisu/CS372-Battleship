@@ -8,7 +8,7 @@
 //int board[10][10];
 
 int size = 50;
-sf::Sprite sp[5]; //figures
+sf::Sprite sp[2]; //figures
 
 int board[10][10] =
 {
@@ -26,8 +26,8 @@ int board[10][10] =
 
 std::string toBoard(sf::Vector2f p){
     std::string s = "";
-    s += char(p.x/size+100);
-    s += char(7-p.y/size+50);
+    s += char(p.x/size+99);
+    s += char(7-p.y/size+49);
     return s;
 }
 
@@ -42,7 +42,7 @@ void letMove(std::string str){
     sf::Vector2f newPos = coord(str[2],str[3]);
     for(int i = 0;i<2;i++){
         if (sp[i].getPosition() == newPos) {
-            sp[i].setPosition(-32,-32);
+            sp[i].setPosition(-50,-50);
         }
     }
     for(int i = 0;i<2;i++){
@@ -62,7 +62,7 @@ for(int i=0; i < 10; i++){
             continue;
         }
         int x = abs(n) - 1;
-        int y = n > 0?1:0;
+        int y = n>0?1:0;
         sp[k].setTextureRect(sf::IntRect(size*x,size*y,size,size));
         sp[k].setPosition(size*j,size*i);
         k++;
@@ -79,10 +79,10 @@ for(int i=0; i < 10; i++){
 	}
 }*/
 int main(){
-	sf::RenderWindow window(sf::VideoMode(800,800), "BattleShip");
+	sf::RenderWindow window(sf::VideoMode(649,650), "BattleShip");
 	sf::Texture t1,t2;
 	t1.loadFromFile("images/Singularboat.png");
-	t2.loadFromFile("images/battleshipBoard1.png");
+	t2.loadFromFile("images/battleshipBoard2.jpg");
 	sf::Sprite s(t1);
 	sf::Sprite sBoard(t2);
 

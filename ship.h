@@ -4,10 +4,11 @@
 
 class Ship{
 public:
+    Ship();
     Ship(unsigned int);
-    ~Ship();
     unsigned int getSize();
     void aHit();
+    bool aFloat();
 private:
     unsigned int _shipSize;
     bool _floatin;

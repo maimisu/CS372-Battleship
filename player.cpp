@@ -1,6 +1,15 @@
 #include <string>
+#include <stdlib.h>
+#include <ctime>
 #include "player.h"
 #include "ship.h"
+
+Player::Player():_score(0){
+    std::srand((unsigned)std::time(0));
+    int ran = std::rand() % 100 + 1;
+    _playerName = "Player " + std::to_string(ran);
+}
+
 
 Player::Player(std::string str): _playerName(str),_score(0){
     /*Ship carrier((unsigned int)5);
@@ -14,7 +23,7 @@ void Player::addScore(unsigned int shipLeng){
     this->_score += shipLeng;
 }
 
-std::string Player::getName(std::string){
+std::string Player::getName(){
     return this->_playerName;
 }
 unsigned int Player::getScore(){

@@ -1,9 +1,13 @@
 #include <string>
 #include "player.h"
+#include "ship.h"
 
 Player::Player(std::string str): _playerName(str),_score(0){
-    //make ships associated with this class
-    //make something to hold the position of those ships
+    /*Ship carrier((unsigned int)5);
+    Ship battleship((unsigned int)4);
+    Ship cruiser((unsigned int)3);
+    Ship submarine((unsigned int)3);
+    Ship rowboat((unsigned int)2);*/
 }
 
 void Player::addScore(unsigned int shipLeng){

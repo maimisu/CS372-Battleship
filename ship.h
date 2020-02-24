@@ -9,8 +9,9 @@ public:
     unsigned int getSize();
     void aHit();
 private:
-    bool floatin;
     unsigned int _shipSize;
+    bool _floatin;
+    int _damage;
 };
 
 #endif

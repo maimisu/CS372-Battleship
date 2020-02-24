@@ -4,13 +4,16 @@
 #include <string>
 
 class Player{
-private:
-    unsigned int _score;
-    std::string _playerName;
 public:
     Player(std::string);
+    Player(const Player& copy_from_me) = delete;
+    Player & operator= (const Player & other) = delete;
+    ~Player();
     void addScore(unsigned int);
     std::string getName(std::string);
     unsigned int getScore();
+private:
+    std::string _playerName;
+    unsigned int _score;
 };
 #endif

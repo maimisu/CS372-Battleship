@@ -12,7 +12,7 @@ sf::Sprite sp[2]; //figures
 
 int board[10][10] =
 {
-    -6, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 8, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -24,12 +24,12 @@ int board[10][10] =
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
 
-std::string toBoard(sf::Vector2f p){
+/*std::string toBoard(sf::Vector2f p){
     std::string s = "";
     s += char(p.x/size+99);
     s += char(7-p.y/size+49);
     return s;
-}
+}*/
 
 /*sf::Vector2f coord(char a, char b){
     int x = int(a) - 97;
@@ -126,7 +126,6 @@ int main(){
                     sp[n].setPosition(newPos);
                 }
             }
-
             if(isMove)sp[n].setPosition(pos.x-dx,pos.y-dy);
             window.clear();
             window.draw(sBoard);

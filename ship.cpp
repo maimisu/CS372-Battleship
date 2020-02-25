@@ -5,8 +5,9 @@ Ship::Ship():
 }
 Ship::Ship(unsigned int siz):
     _shipSize(siz),_floatin(true),_damage(0) {
-        if (this->_shipSize <= 0){
+        if (this->_shipSize <= 0 || this->_shipSize > 10){
             this->_floatin = false;
+            this->_shipSize = 0;
         }
 }
 unsigned int Ship::getSize(){
